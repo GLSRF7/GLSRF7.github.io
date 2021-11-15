@@ -8,7 +8,13 @@
   <body>
   </body>
   <script>
-      cheerpjInit({clipboardMode:"java"});
+    cheerpjInit({overrideShortcuts:function(e)
+{
+    // Let Java handle Ctrl+F
+    if(e.ctrlKey && e.keyCode == 67)
+      return true;
+    return false;
+}});
       cheerpjCreateDisplay(800,600);
       cheerpjRunJar("/app/pocketsme.jar"); 
   </script>
